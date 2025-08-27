@@ -7,7 +7,7 @@ import HomeButton from "./icons/Homebutton";
 import XButton from "./icons/Xicon";
 import OButton from "./icons/Oicon";
 import Confetti from "react-confetti";
-import XimgSymbol from "./icons/Ximg"
+import XimgSymbol from "./icons/Ximg";
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";
 
