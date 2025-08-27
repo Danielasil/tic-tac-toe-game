@@ -35,19 +35,21 @@ export default function GamePage() {
 function Game() {
   type Cell = "X" | "O" | null;
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const initialBoard: Cell[] = Array(9).fill(null);
   const [board, setBoard] = useState(initialBoard);
   const [isXNext, setIsXNext] = useState(true);
-  
+
   const { width, height } = useWindowSize();
+
+
 
   function handleClick(index: number) {
     if (board[index] || winner) return;
 
     const newBoard = [...board];
-    newBoard[index] = "X"; 
+    newBoard[index] = "X";
     setBoard(newBoard);
     setIsXNext(false);
 
@@ -56,24 +58,24 @@ function Game() {
 
   function cpuMove(currentBoard: Cell[]) {
     if (calculateWinner(currentBoard)) return;
-  
+
     const emptyIndices = currentBoard
       .map((cell, i) => (cell === null ? i : null))
       .filter((i): i is number => i !== null);
-  
+
     if (emptyIndices.length === 0) return;
-  
+
     const findWinningMove = (player: Cell) => {
       const lines = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],
         [0, 3, 6], [1, 4, 7], [2, 5, 8],
         [0, 4, 8], [2, 4, 6],
       ];
-  
+
       for (let line of lines) {
         const [a, b, c] = line;
         const values = [currentBoard[a], currentBoard[b], currentBoard[c]];
-        
+
         if (
           values.filter(v => v === player).length === 2 &&
           values.includes(null)
@@ -83,18 +85,18 @@ function Game() {
       }
       return null;
     };
-  
-   
+
+
     let move = findWinningMove("O");
-  
+
     if (move === null) {
       move = findWinningMove("X");
     }
-  
+
     if (move === null) {
       move = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
     }
-  
+
     const newBoard = [...currentBoard];
     newBoard[move] = "O";
     setBoard(newBoard);
@@ -104,8 +106,8 @@ function Game() {
   function calculateWinner(cells: Cell[]): Cell {
     const lines = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], 
-      [0, 4, 8], [2, 4, 6],        
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6],
     ];
 
     for (let line of lines) {
@@ -118,47 +120,51 @@ function Game() {
   }
 
   const winner = calculateWinner(board);
+  const empate = !winner && board.every(cell => cell !== null);
 
   return (
     <div className="board-space">
       {winner && <Confetti width={width} height={height} />}
 
       <div className="space-game-buttons">
-      
-        <button 
-        className="game-button"
-        onClick={() => navigate("/")} 
+
+        <button
+          className="game-button"
+          onClick={() => navigate("/")}
         >
-        <HomeButton className="button-reload"></HomeButton>
+          <HomeButton className="button-reload"></HomeButton>
         </button>
 
-        {winner && (
-        <button
-          onClick={() => setBoard(initialBoard)}
-          className="game-button"
-        >
-        <ReLoadButton className="button-reload"></ReLoadButton>
-        </button>
-      )}
+        {(winner || empate) && (
+          <button
+            onClick={() => setBoard(initialBoard)}
+            className="game-button"
+          >
+            <ReLoadButton className="button-reload"></ReLoadButton>
+          </button>
+        )}
       </div>
 
       <div className="grid-container">
         {board.map((cell, i) => (
           <button
-          key={i}
-          onClick={() => handleClick(i)}
-          className="cell-of-grid"
-          disabled={!!cell || !!winner}
-        >
-          {cell === "X" && <XButton className="x-button"/>}
-          {cell === "O" && <OButton/>}
-        </button>
+            key={i}
+            onClick={() => handleClick(i)}
+            className="cell-of-grid"
+            disabled={!!cell || !!winner}
+          >
+            {cell === "X" && <XButton className="x-button" />}
+            {cell === "O" && <OButton />}
+          </button>
         ))}
 
       </div>
-      <div className="text-winner">
-        {winner ? `Winner: ${winner}` : `Turn: ${isXNext ? "X" : "O"}`}
-      </div>
+      {winner
+        ? `Winner: ${winner}`
+        : board.every(cell => cell !== null)
+          ? "Tie"
+          : `Turn: ${isXNext ? "X" : "O"}`
+      }
     </div>
   );
 }
