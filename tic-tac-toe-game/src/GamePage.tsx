@@ -2,14 +2,16 @@
 
 import React, { useState } from "react";
 import './GameStyles.css';
+
 import ReLoadButton from "./icons/Reloadbutton";
-import HomeButton from "./icons/Homebutton";
-import XButton from "./icons/Xicon";
-import OButton from "./icons/Oicon";
-import Confetti from "react-confetti";
-import XimgSymbol from "./icons/Ximg";
+import HomeButton from "./icons/homeicon";
+import XButton from "./icons/xicono";
+import OButton from "./icons/oicono";
+import XimgSymbol from "./icons/xsimbolo";
+
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";
+import Confetti from "react-confetti";
 
 export default function GamePage() {
   return (
