@@ -2,12 +2,12 @@
 
 import React, { useState } from "react";
 import './GameStyles.css';
-import ReLoadButton from "./icons/Reloadbutton";
-import HomeButton from "./icons/Homebutton";
-import XButton from "./icons/Xicon";
-import OButton from "./icons/Oicon";
+import ReLoadButton from "./icons/Reloadbutton.tsx";
+import HomeButton from "./icons/Homebutton.tsx";
+import XButton from "./icons/Xicon.tsx";
+import OButton from "./icons/Oicon.tsx";
 import Confetti from "react-confetti";
-import XimgSymbol from "./icons/Ximg";
+import XimgSymbol from "./icons/Ximg.tsx";
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";
 
