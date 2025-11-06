@@ -174,6 +174,8 @@
 }
 .dark .game-button{
   background-color: #292424;
+  box-shadow: -10px 21px 27px 0 rgba(0, 0, 0, 0.2);
+
 }
 .grid-container{
   display: grid;  
@@ -187,6 +189,7 @@
 }
 .dark .grid-container{
   background-color: #292424;
+  box-shadow: -10px 21px 27px 0 rgba(0, 0, 0, 0.2);
 }
 .cell-of-grid{
   width: 5rem;             
