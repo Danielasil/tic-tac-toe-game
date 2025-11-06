@@ -3,11 +3,11 @@
 import React, { useState } from "react";
 import './GameStyles.css';
 
-import ReLoadButton from "./icons/Reloadbutton";
-import HomeButton from "./icons/homeicon";
-import XButton from "./icons/xicono";
-import OButton from "./icons/oicono";
-import XimgSymbol from "./icons/xsimbolo";
+import ReLoadButton from "./icons/Reloadbutton.tsx";
+import HomeButton from "./icons/homeicon.tsx";
+import XButton from "./icons/xicono.tsx";
+import OButton from "./icons/oicono.tsx";
+import XimgSymbol from "./icons/xsimbolo.tsx";
 
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";

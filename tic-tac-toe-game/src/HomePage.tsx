@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import XimgSymbol from "./icons/xsimbolo";
+import XimgSymbol from "./icons/xsimbolo.tsx";
 import { useState, useEffect}from "react";
 
 export default function HomePage() {

@@ -8,7 +8,7 @@
   justify-content: center;
   height: 100vh;
   align-items: center; 
-  background-color: #E0E0E0;
+  background-color: #ffffff;
 }
 .dark .bg-space {
   background-color: #121212;
@@ -51,7 +51,7 @@
 }
 .start-game-button{
   border-radius: 30px;
-  background-color: #ECECEC;
+  background-color: #ffffff;
   border: none;
   width: 220px;
   height: 60px;
@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  box-shadow: -10px 21px 27px 0 #A3A5C7;
+  box-shadow: -10px 21px 27px 0 #bfc1ef7b;
   cursor: pointer;
 }
 .dark .start-game-button{
@@ -164,8 +164,8 @@
   gap: 10px;
 }
 .game-button{
-  background-color: #F2F2F2;
-  box-shadow: -10px 21px 27px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fcfbfb;
+  box-shadow: -10px 21px 27px 0 rgba(135, 135, 135, 0.2);
   border-radius: 100%;
   border: none;
   min-height: 50px;
@@ -179,9 +179,9 @@
   display: grid;  
   grid-template-columns: repeat(3, 1fr); 
   gap: 0.6rem; 
-  background-color: #F2F2F2;
+  background-color: #ffffff;
   border-radius: 15px;
-  box-shadow: -10px 21px 27px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: -10px 21px 27px 0 rgba(135, 135, 135, 0.2);
   margin: 40px;
   padding: 10px;
 }
@@ -198,7 +198,7 @@
   align-items: center;     
   justify-content: center;  
   transition: background-color 0.2s;
-  background-color: #dbd9d9;
+  background-color: #e3e3e35c;
   border: none;
   padding: 0px;
 }
