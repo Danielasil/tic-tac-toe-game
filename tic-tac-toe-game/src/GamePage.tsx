@@ -1,17 +1,16 @@
 
 
 import React, { useState } from "react";
-import './GameStyles.css';
-
 import ReLoadButton from "./icons/Reloadbutton.tsx";
 import HomeButton from "./icons/homeicon.tsx";
 import XButton from "./icons/xicono.tsx";
 import OButton from "./icons/oicono.tsx";
-import XimgSymbol from "./icons/xsimbolo.tsx";
-
 import { useWindowSize } from "react-use";
 import { useNavigate } from "react-router-dom";
 import Confetti from "react-confetti";
+import "./Styles.css"
+
+
 
 export default function GamePage() {
   return (
@@ -19,17 +18,6 @@ export default function GamePage() {
       <div>
         <Game />
       </div>
-      <div className="circle"></div>
-      <div className="square"></div>
-      <div className="square-2"></div>
-      <div className="triangle"></div>
-      <div className="x-box"><XimgSymbol></XimgSymbol></div>
-
-      <div className="square-3"></div>
-      <div className="circle-2"></div>
-      <div className="square-4"></div>
-      <div className="triangle-2"></div>
-      <div className="x-box-2"><XimgSymbol></XimgSymbol></div>
     </main>
   );
 }
@@ -38,14 +26,10 @@ function Game() {
   type Cell = "X" | "O" | null;
 
   const navigate = useNavigate();
-
   const initialBoard: Cell[] = Array(9).fill(null);
   const [board, setBoard] = useState(initialBoard);
   const [isXNext, setIsXNext] = useState(true);
-
   const { width, height } = useWindowSize();
-
-
 
   function handleClick(index: number) {
     if (board[index] || winner) return;

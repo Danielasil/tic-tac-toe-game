@@ -1,6 +1,6 @@
 import React from "react";
+
 import { useNavigate } from "react-router-dom";
-import XimgSymbol from "./icons/xsimbolo.tsx";
 import { useState, useEffect}from "react";
 
 export default function HomePage() {
@@ -45,18 +45,6 @@ export default function HomePage() {
       <span className="slider"></span>
     </label>
       </div>
-
-      <div className="circle-home-page"></div>
-      <div className="square-home-page"></div>
-      <div className="square-2-home-page"></div>
-      <div className="triangle-home-page"></div>
-      <div className="x-box-home-page"><XimgSymbol></XimgSymbol></div>
-
-      <div className="square-3-home-page"></div>
-      <div className="circle-2-home-page"></div>
-      <div className="square-4-home-page"></div>
-      <div className="triangle-2-home-page"></div>
-      <div className="x-box-2-home-page"><XimgSymbol></XimgSymbol></div>
     </div>
   );
 }
